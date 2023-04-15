@@ -15,7 +15,9 @@ function getSeason(date = 'no-value') {
   if (date === 'no-value') return 'Unable to determine the time of year!';
   if (date instanceof Date) {
   if (Object.prototype.toString.call(date) !== '[object Date]') throw new Error('Invalid date!');
-  
+  const isDate = date && date instanceof Date;
+  if (!isDate || date.hasOwnProperty('toString')) throw new Error('Invalid date!');
+
   //throw new NotImplementedError('Not implemented');
   // remove line with error and write your code here
   // спасибо за разбор задания с создателем - стало понятно!!!new Error('Invalid date!')
